@@ -1,0 +1,1 @@
+<td id="del"><%= @email.body %></td><%= link_to "🗑", email_path(email), :data => {:confirm => "Are you sure to delete this email?", method: :DELETE}, remote: true %> <%= link_to "Marquer comme non lu"%>

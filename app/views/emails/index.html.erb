@@ -1,0 +1,23 @@
+<h1 style="text-align: center;"> Emails</h1>
+
+<table id="imail" align= center width= 90%, border=1>	
+
+<div>
+<tr>
+	<th width=25% >Object</th>
+    <th >Body</th>
+	<% @emails.each do |email| %>
+</tr>
+
+<tr>
+	<td><%= link_to "#{email.object}", email_path(email.id), remote: true %> 
+		 <%= check_box_tag :value,1 , false , data: { remote: true, url: email_path(email.id), params: { id: email.id}.to_param, method: "put" }%>
+ </td>
+	<td id="<%= email.id %>"></td>
+	<% end %>
+</tr>
+</div>
+	
+</table>
+
+<p style="margin-left: 5%"><%= link_to "Receive an email", "/emails", class:"btn btn-primary", method: :POST, remote: true %></p>
